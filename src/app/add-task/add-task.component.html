@@ -1,0 +1,35 @@
+<div class="container-fluid bg-dark" style="height: 100vh;">
+    <div class="row align-items-center" style="height: 100%;">
+        <div class="col-lg-4"></div>
+        <div class="col-lg-4">
+            <form (ngSubmit)="onSubmit()" [formGroup]="taskForm" class="card p-3 bg-light">
+                <div class="text-center">
+                    <h3 style="font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;">Add Task</h3>
+                </div>
+                <input class="form-control" type="text" placeholder="Enter task title" formControlName="name">
+                <div *ngIf="name?.invalid && name?.touched">
+                    <small *ngIf="name?.hasError('required')">This field is required</small>
+                    <small *ngIf="name?.hasError('maxlength')">Maximum allowed length is 50 characters</small>
+                </div>
+                <input class="form-control my-3" type="text" placeholder="Enter task description"
+                    formControlName="description">
+                <div *ngIf="description?.invalid && description?.touched">
+                    <small *ngIf="description?.hasError('required')">This field is required</small>
+                    <small *ngIf="description?.hasError('maxlength')">Maximum allowed length is 250 characters.</small>
+                </div>
+                <select class="form-select" formControlName="priority">
+                    <option value="">Choose task priority</option>
+                    <option *ngFor="let priority of priorityChoices" [value]="priority.key">{{priority.value}}</option>
+                </select>
+                <select class="form-select my-3" formControlName="status">
+                    <option value="">Choose task status</option>
+                    <option *ngFor="let status of statusChoices" [value]="status.key">{{status.value}}</option>
+                </select>
+                <div class="text-center">
+                    <button [disabled]="taskForm.invalid" class="btn btn-outline-dark">Add</button>
+                </div>
+            </form>
+        </div>
+        <div class="col-lg-4"></div>
+    </div>
+</div>

@@ -1,0 +1,18 @@
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="" routerLink="/home"><strong>Todo</strong></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
+            aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav ms-auto">
+                <button routerLink="/add-task" class="btn btn-outline-dark me-2 mb-1"
+                    style="width: 125px; height: 40px;"><strong>New Task <i
+                            class="fa-solid fa-plus"></i></strong></button>
+                <button (click)="logout()" class="btn btn-outline-dark mb-1" style="width: 75px; height: 40px;"><i
+                        class="fas fa-sign-out-alt me-2"></i></button>
+            </div>
+        </div>
+    </div>
+</nav>

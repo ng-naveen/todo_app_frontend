@@ -1,0 +1,31 @@
+<div class="container-fluid bg-dark" style="height: 100vh;">
+    <div class="row align-items-center" style="height: 100%;">
+        <div class="col-lg-4"></div>
+        <div class="col-lg-4">
+            <form class="card p-4 bg-light" [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
+                <div class="text-center">
+                    <h3 style="font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;">Register</h3>
+                </div>
+                <input class="form-control shadow-lg" type="text" placeholder="Enter a username" formControlName="username">
+                <div *ngIf="username?.touched && username?.invalid">
+                    <small class="text-danger">Username is required.</small>
+                </div>
+                <input class="form-control shadow-lg my-2" type="email" placeholder="Enter your email address" formControlName="email">
+                <div *ngIf="email?.touched && email?.invalid">
+                    <small class="text-danger" *ngIf="email?.hasError('required')">Email is required.</small>
+                    <small class="text-danger" *ngIf="email?.hasError('email')">Enter a vaild email.</small>
+                </div>
+                <input class="form-control shadow-lg" type="password" placeholder="Enter a password" formControlName="password">
+                <div *ngIf="password?.touched && password?.invalid">
+                    <small class="text-danger" *ngIf="password?.hasError('required')">Password is required.</small>
+                    <small class="text-danger" *ngIf="password?.hasError('minlength')">Password must be at least 8 characters.</small>
+                </div>
+                <div class="text-center mt-3">
+                    <button [disabled]="registrationForm.invalid" class="btn btn-outline-primary shadow" type="submit">Register</button>
+                </div>
+                <a href="" routerlink="" style="color: black; text-decoration: none; font-family: 'Courier New', Courier, monospace;">Existing member? Login here</a>
+            </form>
+        </div>
+        <div class="col-lg-4"></div>
+    </div>
+</div>
